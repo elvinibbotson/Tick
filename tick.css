@@ -1,0 +1,139 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Courier',monospace;
+  color: white;
+  background: dimgray;
+  -webkit-font-smoothing: antialiased;
+}
+html {
+  overflow: hidden; }
+body {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-align-content: stretch;
+      -ms-flex-line-pack: stretch;
+          align-content: stretch;
+}
+li {
+	width: 100%;
+	text-align: left;
+	color: white;
+	font-size: 1.2em; 
+	display: block;
+}
+input {
+    height: 32px;
+	font-size: 1.2em;
+	padding: 0;
+	margin: 10px;
+	color: white;
+	background-color: black;
+	border: solid gray 2px;
+}
+.check {
+    width: 24px;
+	height: 24px;
+	vertical-align: middle;
+    accent-color: #000;
+}
+.iconButton {
+	position: absolute;
+	width: 36px;
+	height: 36px;
+	padding: 12px;
+	margin: 5px;
+	border: none;
+}
+#header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 40px;
+	background: black;
+	font-size: 1.5em;
+	z-index: 5;
+}
+#activeTab {
+	position: absolute;
+	left: 0;
+	height: 40px;
+	padding: 5px;
+	color: white;
+	background-color: #444;
+}
+#inactiveTab {
+	position: absolute;
+	left: 50%;
+	width: 50%;
+	height: 40px;
+	padding: 5px;
+	color: #AAA;
+}
+#list {
+	margin-top: 36px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    background-color: #444;
+    padding: 5px;
+}
+#itemDialog {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 5px;
+	color: white;
+	background: black;
+	display: none;
+	z-index: 10;
+}
+#dialogButtons {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 50px;
+	background: black;
+}
+#buttonDelete {
+	background: url(delete24px.svg) center center no-repeat;
+    left: 5%;
+}
+#buttonPromote {
+	background: url(up24px.svg) center center no-repeat;
+    left: 30%;
+}
+#buttonDemote {
+	background: url(down24px.svg) center center no-repeat;
+    left: 50%;
+}
+#buttonAdd {
+    background: url(add24px.svg) center center no-repeat;
+    left: 75%;
+}
+#buttonSave {
+	background: url(ok24px.svg) center center no-repeat;
+    left: 75%;
+}

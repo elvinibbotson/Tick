@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<meta name="theme-color" content="black">
+    <title>Tick</title>
+    <link rel="stylesheet" type="text/css" href="tick.css">
+    <link rel="manifest" href="manifest.json">
+  	<meta name="application-name" content="Tick">
+</head>
+<body>
+	<div id='header'>
+		<div id='activeTab'>make list</div>
+		<div id='inactiveTab'>shopping</div>
+	</div>
+	<ul id='list'></ul>
+	<div id='itemDialog'>
+		<input type='text' id='textField'/>
+		<span id='message'></span>
+		<div id="dialogButtons">
+			<button id="buttonDelete" class='iconButton'></button>
+			<button id="buttonPromote" class='iconButton'></button>
+			<button id="buttonDemote" class='iconButton'></button>
+			<button id="buttonAdd" class='iconButton'></button> 
+			<button id="buttonSave" class='iconButton'></button>  
+		</div>
+	</div>
+	<script src="tick.js" async></script>
+</body>
+</html>
