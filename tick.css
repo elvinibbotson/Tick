@@ -42,6 +42,10 @@ li {
 	font-size: 1.2em; 
 	display: block;
 }
+button {
+	font-family: 'Curier',monospace;
+	font-size: 1.5em;
+}
 input {
     height: 32px;
 	font-size: 1.2em;
@@ -52,10 +56,39 @@ input {
 	border: solid gray 2px;
 }
 .check {
-    width: 24px;
-	height: 24px;
+    width: 20px;
+	height: 20px;
 	vertical-align: middle;
-    accent-color: #000;
+	background: gray;
+    accent-color: white;
+}
+.roundButton {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	width: 50px;
+	height: 50px;
+	border: none;
+	border-radius: 50%;
+	background: black;
+	display: block;
+	z-index: 5;
+}
+.roundButton img {
+	display: block;
+	width: 24px;
+	height: 24px;
+}
+.dialog {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 5px;
+	color: white;
+	background: black;
+	display: none;
+	z-index: 15;
 }
 .iconButton {
 	position: absolute;
@@ -64,6 +97,19 @@ input {
 	padding: 12px;
 	margin: 5px;
 	border: none;
+}
+#main {
+  padding-top: 50px;
+  width: 100%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  background-color: #444;
 }
 #header {
 	position: fixed;
@@ -91,24 +137,27 @@ input {
 	padding: 5px;
 	color: #AAA;
 }
+#curtain {
+	position: fixed;
+	left:0;
+	top:0;
+	width: 100%;
+	height: 0;
+	background-color: #444;
+	opacity: 0.6;
+	z-index: 10;
+}
 #list {
-	margin-top: 36px;
     list-style: none;
     display: flex;
     flex-direction: column;
     background-color: #444;
     padding: 5px;
 }
-#itemDialog {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	padding: 5px;
-	color: white;
-	background: black;
-	display: none;
-	z-index: 10;
+#buttonNew {
+	right: 20px;
+	bottom: 20px;
+	background: url(add.svg) center center no-repeat;
 }
 #dialogButtons {
 	position: absolute;

@@ -10,12 +10,15 @@
   	<meta name="application-name" content="Tick">
 </head>
 <body>
+<div id='main'>
 	<div id='header'>
 		<div id='activeTab'>make list</div>
 		<div id='inactiveTab'>shopping</div>
 	</div>
 	<ul id='list'></ul>
-	<div id='itemDialog'>
+	<div id='buttonNew' class='roundButton'></div>
+	<div id='curtain'></div>
+	<div id='itemDialog' class='dialog'>
 		<input type='text' id='textField'/>
 		<span id='message'></span>
 		<div id="dialogButtons">
@@ -26,6 +29,11 @@
 			<button id="buttonSave" class='iconButton'></button>  
 		</div>
 	</div>
+	<div id='dataDialog' class='dialog'>
+		<button id='buttonRestore'>RESTORE</button>
+		<button id='buttonBackup'>BACKUP</button>
+	</div>
 	<script src="tick.js" async></script>
+</div>
 </body>
 </html>
