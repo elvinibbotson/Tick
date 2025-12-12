@@ -32,7 +32,7 @@ id('buttonAdd').addEventListener('click',function() {
 		}
 	}
 	console.log('add new item '+text+' at itemIndex '+itemIndex);
-	if(itemIndex) items.splice(itemIndex,0,new Item(text));
+	if(itemIndex) items.splice((itemIndex+1),0,new Item(text));
 	else items.push(new Item(text));
 	// id('itemDialog').style.display='none';
 	hide('itemDialog');
@@ -99,7 +99,6 @@ load();
 function list() {
 	console.log('list '+items.length+' items - mode: '+mode);
 	id('list').innerHTML=''; // clear list
-	// if(mode=='list') { // list all items to compile shopping list
 	id('activeTab').innerText=(mode=='list')?'make list':'shopping';
 	id('inactiveTab').innerText=(mode=='list')?'shopping':'make list';
 	for(var i in items) {
@@ -129,7 +128,7 @@ function list() {
 		itemText.style='margin-left:50px;';
 		itemText.index=i;
 		itemText.innerHTML=item.text;
-		if(mode=='list') itemText.addEventListener('click',function(){itemIndex=this.index; console.log('select '+itemIndex)}); // open(this.index);});
+		if(mode=='list') itemText.addEventListener('click',function(){itemIndex=Number(this.index); console.log('select '+itemIndex)}); // open(this.index);});
 		listItem.appendChild(itemText);
 		if(mode=='list') {
 			var itemEdit=document.createElement('button');
@@ -140,16 +139,8 @@ function list() {
 			listItem.appendChild(itemEdit);
 		}
 		id('list').appendChild(listItem);
+		itemIndex=null;
 	}
-	/*
-	if(mode=='list') { // add '+ new item' to list
-		listItem=document.createElement('li');
-		listItem.innerHTML="+ new item";
-		listItem.addEventListener('click',newItem);
-		listItem.setAttribute('style','padding:10px');
-		id('list').appendChild(listItem);
-	}
-	*/
 }
 // OPEN ITEM FOR EDITING
 function open(n) {

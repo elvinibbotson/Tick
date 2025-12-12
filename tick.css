@@ -43,14 +43,19 @@ li {
 	display: block;
 }
 button {
-	font-family: 'Curier',monospace;
+	font-family: 'Courier',monospace;
 	font-size: 1.5em;
+	color: white;
+	background: dimgray;
+	border: solid white 2px;
+	border-radius: 5px;
 }
 input {
     height: 32px;
-	font-size: 1.2em;
 	padding: 0;
 	margin: 10px;
+	font-family: 'Courier',monospace;
+	font-size: 1.2em;
 	color: white;
 	background-color: black;
 	border: solid gray 2px;
