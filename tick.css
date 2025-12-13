@@ -137,10 +137,14 @@ input {
 #inactiveTab {
 	position: absolute;
 	left: 50%;
-	width: 50%;
 	height: 40px;
 	padding: 5px;
 	color: #AAA;
+}
+#buttonData {
+	right: 5px;
+	top: 0;
+	background: url(data24px.svg) center center no-repeat;
 }
 #curtain {
 	position: fixed;

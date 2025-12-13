@@ -11,14 +11,11 @@ class Item {
 	}
 }
 // ACTIONS
-id('activeTab').addEventListener('click',function() {
+id('activeTab').addEventListener('click',toggleMode);
+id('inactiveTab').addEventListener('click',toggleMode);
+id('buttonData').addEventListener('click',function() {
 	show('dataDialog');
-});
-id('inactiveTab').addEventListener('click',function() {
-	if(mode=='list') mode='shop';
-	else mode='list';
-	list();
-});
+})
 id('buttonNew').addEventListener('click',function() {
 	console.log('new item');
 	newItem();
@@ -101,6 +98,7 @@ function list() {
 	id('list').innerHTML=''; // clear list
 	id('activeTab').innerText=(mode=='list')?'make list':'shopping';
 	id('inactiveTab').innerText=(mode=='list')?'shopping':'make list';
+	id('buttonNew').style.display=(mode=='list')?'block':'none';
 	for(var i in items) {
 		// in list mode list all items showing tick if item.tick is true
 		// in shop mode list ticked items (item.tick true) but show unticked 
@@ -242,6 +240,11 @@ function backup() {
 // UTILITIES
 function id(el) {
 	return document.getElementById(el);
+}
+function toggleMode() {
+	if(mode=='list') mode='shop';
+	else mode='list';
+	list();
 }
 function swop(a,b) {
 	console.log('swop items '+a+' & '+b+' - '+items[a].text+' & '+items[b].text);
