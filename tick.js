@@ -29,7 +29,7 @@ id('buttonAdd').addEventListener('click',function() {
 		}
 	}
 	console.log('add new item '+text+' at itemIndex '+itemIndex);
-	if(itemIndex) items.splice((itemIndex+1),0,new Item(text));
+	if(itemIndex>=0) items.splice((itemIndex+1),0,new Item(text));
 	else items.push(new Item(text));
 	// id('itemDialog').style.display='none';
 	hide('itemDialog');
@@ -55,6 +55,7 @@ id('buttonDemote').addEventListener('click',function() {
 id('buttonSave').addEventListener('click',function() {
 	console.log()
 	var text=id('textField').value;
+	id('message').innerText='';
 	for(var i in items) {
 		if(items[i].text==text) {
 			id('message').innerText='EXISTS';
@@ -70,7 +71,7 @@ id('buttonSave').addEventListener('click',function() {
 });
 id('buttonDelete').addEventListener('click',function() {
 	console.log('delete item '+itemIndex+' - '+item.text);
-	items.splice(item.index,1);
+	items.splice(itemIndex,1);
 	// id('itemDialog').style.display='none';
 	hide('itemDialog');
 	list();
@@ -126,14 +127,14 @@ function list() {
 		itemText.style='margin-left:50px;';
 		itemText.index=i;
 		itemText.innerHTML=item.text;
-		if(mode=='list') itemText.addEventListener('click',function(){itemIndex=Number(this.index); console.log('select '+itemIndex)}); // open(this.index);});
+		if(mode=='list') itemText.addEventListener('click',function(){itemIndex=Number(this.index); console.log('select '+itemIndex); select(this.index);});
 		listItem.appendChild(itemText);
 		if(mode=='list') {
 			var itemEdit=document.createElement('button');
 			itemEdit.setAttribute('class','iconButton');
 			itemEdit.setAttribute('style','left: 85%; background: url(edit24px.svg) center center no-repeat;');
 			itemEdit.index=i;
-			itemEdit.addEventListener('click',function() {itemIndex=this.index; open(this.index);});
+			itemEdit.addEventListener('click',function() {itemIndex=Number(this.index); open(this.index);});
 			listItem.appendChild(itemEdit);
 		}
 		id('list').appendChild(listItem);
@@ -152,6 +153,7 @@ function open(n) {
 	id('buttonAdd').style.display='none';
 	id('buttonSave').style.display='block';
 	// id('itemDialog').style.display='block';
+	id('message').innerText='';
 	show('itemDialog');
 }
 // ADD NEW ITEM TO LIST
@@ -165,6 +167,7 @@ function newItem() {
 	id('buttonAdd').style.display='block';
 	id('buttonSave').style.display='none';
 	// id('itemDialog').style.display='block';
+	id('message').innerText='';
 	show('itemDialog');
 }
 // LOAD ITEMS FROM STORAGE
@@ -245,6 +248,14 @@ function toggleMode() {
 	if(mode=='list') mode='shop';
 	else mode='list';
 	list();
+}
+function select(n) {
+	var listItems=id('list').children;
+	console.log(listItems.length+' list items');
+	for(var i=0;i<listItems.length;i++) {
+		// console.log('set background for list item '+i);
+		listItems[i].style.background=(i==n)?'gray':'none';
+	}
 }
 function swop(a,b) {
 	console.log('swop items '+a+' & '+b+' - '+items[a].text+' & '+items[b].text);
