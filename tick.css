@@ -65,8 +65,7 @@ input {
     width: 20px;
 	height: 20px;
 	vertical-align: middle;
-	background: gray;
-    accent-color: white;
+    accent-color: black;
 }
 .roundButton {
 	position: fixed;
