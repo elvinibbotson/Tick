@@ -207,8 +207,8 @@ function restore() {
     		var data=evt.target.result;
     		var json=JSON.parse(data);
     		items=json.items;
-			console.log(logs.length+" items loaded");
-			logData=JSON.stringify(items);
+			console.log(items.length+" items loaded");
+			// logData=JSON.stringify(items);
     		save();
     		console.log('data imported and saved');
     		load();
