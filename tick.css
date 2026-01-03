@@ -46,10 +46,10 @@ li {
 button {
 	font-family: 'Courier',monospace;
 	font-size: 1.5em;
+	font-weight: bold;
+	background: none;
 	color: white;
-	background: dimgray;
-	border: solid white 2px;
-	border-radius: 5px;
+	border: none;
 }
 input {
     height: 32px;
@@ -194,4 +194,18 @@ input {
 #buttonSave {
 	background: url(ok24px.svg) center center no-repeat;
     left: 75%;
+}
+#buttonSignOut {
+	background: url(delete24px.svg) center center no-repeat;
+	right: 5px;
+}
+@media all and (max-width: 780px) {
+    .phppot-container {
+        width: auto;
+    }
+}
+@media all and (max-width: 450px) {
+    .phppot-container {
+        padding: 0px 0px;
+    }
 }

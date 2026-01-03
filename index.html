@@ -10,7 +10,7 @@
   	<meta name="application-name" content="Tick">
 </head>
 <body>
-<div id='main'>
+<div id='main' class="phppot-container">
 	<div id='header'>
 		<div id='activeTab'>make list</div>
 		<div id='inactiveTab'>shopping</div>
@@ -31,11 +31,21 @@
 		</div>
 	</div>
 	<div id='dataDialog' class='dialog'>
-		<button id='buttonRestore'>restore</button>
-		<button id='buttonBackup'>backup</button>
+		<button id='buttonRestore'>RESTORE</button>
+		<button id='buttonBackup'>BACKUP</button>
+	</div>
+	<div id='syncDialog' class='dialog'>
+		<button id='buttonDownload' onclick='handleDownloadClick()'>load</button>
+		<button id='buttonUpload' onclick='handleUploadClick()'>save</button>
+		<button id='buttonSignOut' class='iconButton' onclick='handleSignoutClick()'></button>
 	</div>
 	<input type="file" id="fileChooser" accept=".json" style="display: none">
 	<script src="tick.js" async></script>
+	<!--script type="text/javascript" src="gapi.js"></script>
+	<script async defer src="https://apis.google.com/js/api.js"
+        onload="gapiLoaded()"></script>
+    <script async defer src="https://accounts.google.com/gsi/client"
+        onload="gisLoaded()"></script-->
 </div>
 </body>
 </html>

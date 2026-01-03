@@ -233,7 +233,7 @@ function backup() {
     var url=window.URL.createObjectURL(blob);
 	console.log("data ready to save: "+blob.size+" bytes");
    	a.href=url;
-   	a.download=fileName;
+   	a.download='PWAdata/'+fileName;
     document.body.appendChild(a);
     a.click();
     // id('dataMessage').innerText='';
