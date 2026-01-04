@@ -168,6 +168,12 @@ input {
 	bottom: 20px;
 	background: url(add.svg) center center no-repeat;
 }
+#buttonEdit {
+	left: 20px;
+	bottom: 20px;
+	background: url(edit.svg) center center no-repeat;
+	display: none;
+}
 #dialogButtons {
 	position: absolute;
 	left: 0;

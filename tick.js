@@ -1,6 +1,6 @@
 var items=[];
 var item={};
-var itemIndex=0;
+var itemIndex=-1;
 var mode='list'; // start up showing 'make list' tab
 var dragStart={};
 class Item {
@@ -20,6 +20,10 @@ id('buttonNew').addEventListener('click',function() {
 	console.log('new item');
 	newItem();
 });
+id('buttonEdit').addEventListener('click',function() {
+	console.log('edit item '+itemIndex);
+	open(itemIndex);
+})
 id('buttonAdd').addEventListener('click',function() {
 	var text=id('textField').value;
 	for(var i in items) {
@@ -127,8 +131,9 @@ function list() {
 		itemText.style='margin-left:50px;';
 		itemText.index=i;
 		itemText.innerHTML=item.text;
-		if(mode=='list') itemText.addEventListener('click',function(){itemIndex=Number(this.index); console.log('select '+itemIndex); select(this.index);});
+		if(mode=='list') itemText.addEventListener('click',function(){console.log('select '+this.index); select(this.index);});
 		listItem.appendChild(itemText);
+		/*
 		if(mode=='list') {
 			var itemEdit=document.createElement('button');
 			itemEdit.setAttribute('class','iconButton');
@@ -137,9 +142,11 @@ function list() {
 			itemEdit.addEventListener('click',function() {itemIndex=Number(this.index); open(this.index);});
 			listItem.appendChild(itemEdit);
 		}
+		*/
 		id('list').appendChild(listItem);
 		itemIndex=null;
 	}
+	id('buttonEdit').style.display='none';
 }
 // OPEN ITEM FOR EDITING
 function open(n) {
@@ -233,7 +240,7 @@ function backup() {
     var url=window.URL.createObjectURL(blob);
 	console.log("data ready to save: "+blob.size+" bytes");
    	a.href=url;
-   	a.download='PWAdata/'+fileName;
+   	a.download=fileName;
     document.body.appendChild(a);
     a.click();
     // id('dataMessage').innerText='';
@@ -252,10 +259,13 @@ function toggleMode() {
 function select(n) {
 	var listItems=id('list').children;
 	console.log(listItems.length+' list items');
+	if(n==itemIndex) itemIndex=-1; // if already selected (second tap) then deselect
+	else itemIndex=n; // otherwise select and highlight this item
 	for(var i=0;i<listItems.length;i++) {
 		// console.log('set background for list item '+i);
-		listItems[i].style.background=(i==n)?'gray':'none';
+		listItems[i].style.background=(i==itemIndex)?'gray':'none';
 	}
+	id('buttonEdit').style.display=(itemIndex>=0)?'block':'none';
 }
 function swop(a,b) {
 	console.log('swop items '+a+' & '+b+' - '+items[a].text+' & '+items[b].text);
